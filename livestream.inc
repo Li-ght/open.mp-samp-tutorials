@@ -102,7 +102,9 @@ stock LiveStream_Disable(playerid)
 
         SetPlayerPos(playerid, pLiveStreamActorPos[playerid][0], pLiveStreamActorPos[playerid][1], pLiveStreamActorPos[playerid][2]);
         SetPlayerSkin(playerid, pLiveStreamActorSkin[playerid]);
-        SetPlayerCameraPos(playerid, pLiveStreamActorPos[playerid][0], pLiveStreamActorPos[playerid][1], pLiveStreamActorPos[playerid][2] + 1.0);
+        SetPlayerVirtualWorld(playerid, pLiveStreamActorWorld[playerid]);
+        SetPlayerVirtualWorld(playerid, pLiveStreamActorInterior[playerid]);
+        SetPlayerFacingAngle(playerid, pLiveStreamActorAngle[playerid]);
 
         SendClientMessage(playerid, -1, "你关掉了直播画面.");
         
@@ -194,6 +196,9 @@ public UpdateLiveStreamCamera(playerid, targetid)
 {
     if(pLiveStreamWatch[playerid] && IsPlayerConnected(targetid) && IsPlayerSpawned(targetid))
     {
+        SetPlayerVirtualWorld(playerid, GetPlayerVirtualWorld(targetid));
+        SetPlayerInterior(playerid, GetPlayerInterior(targetid));
+        
         new Float:x, Float:y, Float:z, Float:angle;
         GetPlayerPos(targetid, x, y, z);
         GetPlayerFacingAngle(targetid, angle);
