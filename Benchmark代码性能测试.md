@@ -38,7 +38,7 @@ Benchmark定义:
                         if(_t != GetTickCount()) \
                             for(_i = _t = GetTickCount(); ; ++_c, _i = GetTickCount()) \
                                 if((_i - _t) == (%0)) { \
-                                    printf(" 执行性能测试:%1, 平均执行 %.2f 次/毫秒.", floatdiv(_c, (%0))); \
+                                    printf(" 执行性能测试:"%1", 平均执行 %.2f 次/毫秒.", floatdiv(_c, (%0))); \
                                     _t = 0; \
                                     break; \
                                 } else
@@ -53,5 +53,5 @@ Benchmark(1000, "TestA")
 ```
 输出测试结果
 ```
-执行性能测试:, 平均执行 1176.83 次/毫秒.
+执行性能测试:TestA, 平均执行 1191.30 次/毫秒.
 ```
