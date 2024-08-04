@@ -114,7 +114,7 @@ stock LiveStream_Disable(playerid)
 
 stock LiveStream_Watch(playerid, targetid)
 {
-    if(!IsPlayerSpawned(playerid) || GetPlayerState(playerid) != PLAYER_STATE_ONFOOT || !IsPlayerControllable(playerid) || pLiveStreaming[playerid] == true || GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_NONE)
+    if(!IsPlayerSpawned(playerid) || GetPlayerState(playerid) != PLAYER_STATE_ONFOOT  || pLiveStreaming[playerid] == true || GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_NONE)
         return SendClientMessage(playerid, -1, "你当前无法观看直播");
 
     if(pLiveStreaming[targetid])
